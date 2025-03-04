@@ -1,0 +1,2 @@
+/opt/goinfre/nilayosh/example/chaq-chuq/chaqchuq/android/app/.cxx/Debug/6962m12w/x86/CMakeFiles/edit_cache.dir
+/opt/goinfre/nilayosh/example/chaq-chuq/chaqchuq/android/app/.cxx/Debug/6962m12w/x86/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,10 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+
+  color: "#ff0060"
+  image: assets/icons/ChaqChuq2.png
+  android_12:
+    image: assets/icons/ChaqChuq2.png
+    icon_background_color: "#ff0060"

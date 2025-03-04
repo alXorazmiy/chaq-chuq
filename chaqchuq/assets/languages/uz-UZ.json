@@ -1,0 +1,18 @@
+{
+    "hello": "Salom!",
+    "day" : "Kunduz",
+    "night": "Kechgi",
+    "system": "Tizim",
+    "homepage": "Bosh sahifa",
+    "searchpage": "Qidiruv sahifa",
+    "change_language": "Tilni o'zgartirish",
+    "language": "Til",
+    "information": "Malumotlar",
+    "address": "Manzillar",
+    "likes" : "Sevimlilar",
+    "support" : "Qo'llab quvatlash xizmati",
+    "dark_mode" : "Tungi rejim",
+    "bag" : "Savatcha",
+    "order" : "Buyurtmalar",
+    "products" : "Mahsulotlar"
+}

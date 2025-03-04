@@ -1,0 +1,20 @@
+
+
+{
+    "hello": "Привет!",
+    "day" : "светлый",
+    "night": "темный",
+    "system": "Система",
+    "homepage": "главная",
+    "searchpage": "поиск",
+    "change_language": "Изменить язык",
+    "language": "Язык",
+    "information": "Информация",
+    "address": "Адреса",
+    "likes" : "Избранное",
+    "support" : "Служба поддержки",
+    "dark_mode" : "Ночной режим",
+    "bag" : "Корзина",
+    "order" : "Заказы",
+    "products" : "Продукты"
+}
