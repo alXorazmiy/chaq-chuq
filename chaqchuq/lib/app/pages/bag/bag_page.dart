@@ -32,6 +32,7 @@ class _BagPageState extends State<BagPage> {
         return BlocBuilder<BagBloc, BagState>(
             builder: (context, state) {
                 return Scaffold(
+                    backgroundColor: Colors.transparent,
                     appBar: AppBar(
                         backgroundColor: customColors.danger,
                         surfaceTintColor: customColors.danger,

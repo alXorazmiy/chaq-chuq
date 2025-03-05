@@ -22,11 +22,9 @@ class HeaderWidget extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Container(
-            height: 150.h,
-            width: 100.w,
+            height: 100.h,
             padding: EdgeInsets.symmetric(horizontal: 20.w),
             decoration: BoxDecoration(
-                color: customColors.danger,
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(25.r),  
                     bottomRight: Radius.circular(25.r),
@@ -39,7 +37,7 @@ class HeaderWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                            Text("Chaq-Chuq", style: TextStyle(fontFamily: "Titan", color: Colors.white, fontSize: 30.sp)),
+                            Text("Chaq-Chuq", style: TextStyle(fontFamily: "Titan", color: customColors.danger, fontSize: 30.sp)),
                             GestureDetector(
                                 onTap: (){},
                                 child: Container(
@@ -52,7 +50,16 @@ class HeaderWidget extends StatelessWidget {
                                     ),
                                     child: Stack(
                                         children: [
-                                            Icon(Icons.notifications, color: Colors.white,)
+                                            SizedBox(
+                                                height: 24.h,
+                                                width: 24.w,
+                                                child: Image.asset("assets/icons/notification.png", color: customColors.warning,),
+                                            ),
+                                            Positioned(
+                                                right: 0,
+                                                top: 3.h,
+                                                child: Icon(Icons.circle, size: 8, color: customColors.danger,)
+                                            )
                                         ],
                                     ),
                                 ),
@@ -60,34 +67,34 @@ class HeaderWidget extends StatelessWidget {
                         ],
                     ),
                     SizedBox(height: 20.h,),
-                    Container(
-                        margin: EdgeInsets.symmetric(horizontal: 20.w),
-                        padding: EdgeInsets.symmetric(horizontal: 10.w),
-                        height: 35.h,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10.r)
-                        ),
-                        child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                                Icon(Icons.search, color: customColors.danger,),
-                                SizedBox(width: 10.w,),
-                                Expanded(
-                                    child: TextField(
-                                        controller: _searchController,
-                                        decoration: InputDecoration(
-                                            hintText: "Izlash",
-                                            hintStyle: TextStyle(color: Colors.black),
-                                            border: InputBorder.none,
+                    // Container(
+                    //     margin: EdgeInsets.symmetric(horizontal: 20.w),
+                    //     padding: EdgeInsets.symmetric(horizontal: 10.w),
+                    //     height: 35.h,
+                    //     decoration: BoxDecoration(
+                    //         color: Colors.white,
+                    //         borderRadius: BorderRadius.circular(10.r)
+                    //     ),
+                    //     child: Row(
+                    //         crossAxisAlignment: CrossAxisAlignment.center,
+                    //         children: [
+                    //             Icon(Icons.search, color: customColors.danger,),
+                    //             SizedBox(width: 10.w,),
+                    //             Expanded(
+                    //                 child: TextField(
+                    //                     controller: _searchController,
+                    //                     decoration: InputDecoration(
+                    //                         hintText: "Izlash",
+                    //                         hintStyle: TextStyle(color: Colors.black),
+                    //                         border: InputBorder.none,
                                             
-                                        ),
-                                        style: AppTextStyle.customMontserrat(),
-                                    ),
-                                )
-                            ],
-                        ),
-                    )
+                    //                     ),
+                    //                     style: AppTextStyle.customMontserrat(),
+                    //                 ),
+                    //             )
+                    //         ],
+                    //     ),
+                    // )
                 ],
             ),
         );

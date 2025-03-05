@@ -5,6 +5,8 @@
 
 
 
+import 'package:flutter/material.dart';
+
 class ProductsModel {
     final int id;
     final String image;
@@ -12,6 +14,7 @@ class ProductsModel {
     final int price;
     final double amount;
     final bool isLike;
+    final Color color;
 
     ProductsModel({
         this.id = 0, 
@@ -20,6 +23,7 @@ class ProductsModel {
         this.price = 0,
         this.amount = 0.5,
         this.isLike = false,
+        this.color = const Color(0xffe18012),
     });
     ProductsModel copyWith({
         int? id,
@@ -28,6 +32,7 @@ class ProductsModel {
         int? price,
         double? amount,
         bool? isLike,
+        Color? color,
     }) {
         return ProductsModel(
             id: id ?? this.id, 
@@ -36,6 +41,7 @@ class ProductsModel {
             price: price ?? this.price,
             amount: amount ?? this.amount,
             isLike: isLike ?? this.isLike,
+            color: color ?? this.color,
         );
     }
 
@@ -44,6 +50,7 @@ class ProductsModel {
             'id': id,
             'image': image,
             'name': name,
+            'color': color,
         };
     }
 
@@ -55,6 +62,7 @@ class ProductsModel {
             price: json['price'] ?? 0,
             amount: json['amount'] ?? 0.5,
             isLike: json['isLike'] ?? false,
+            color: json['color'] ?? Color(0xffe18012),
         );
     }
 }

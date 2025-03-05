@@ -23,17 +23,16 @@ class CategoryList extends StatelessWidget {
                             return Padding(
                                 padding: EdgeInsets.only(right: 20.w),
                                 child: Container(
-                                    height: 80.h,
-                                    width: 80.w,
-                                    padding: EdgeInsets.only(top: 5.w, left: 5.w, right: 5.w, bottom: 5.w),
+                                    height: 50.h,
+                                    padding: EdgeInsets.only(top: 5.w, left: 10.w, right: 10.w, bottom: 5.w),
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
-                                        color: customColors.categoryBackgroundColor,
+                                        color: Colors.white,
                                         borderRadius: BorderRadius.circular(10.r),
                                     ),
-                                    child: Column(
+                                    child: Row(
                                         children: [
-                                            Image.asset(category.image.toString(), width: 50.w, height: 50.w),
+                                            Image.asset(category.image.toString(), width: 30.w, height: 30.w),
                                             Text(category.name.toString(), textAlign: TextAlign.center),
                                         ],
                                     ),

@@ -27,6 +27,7 @@ class _OrdersPageState extends State<OrdersPage> {
         return BlocBuilder<OrdersBloc, OrdersState>(
         builder: (context, state) {
             return Scaffold(
+                backgroundColor: Colors.transparent,
             appBar: AppBar(
                 backgroundColor: customColors.danger,
                 surfaceTintColor: customColors.danger,

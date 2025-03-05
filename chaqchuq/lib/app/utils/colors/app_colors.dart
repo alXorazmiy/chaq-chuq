@@ -8,7 +8,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     final Color primary = Color(0xff2080F0);
     final Color danger;
     final Color success = Color(0xff1b9c85);
-    final Color warning = Color(0xfffccb0f);
+    final Color warning = Color(0xffe18012);
     final Color firstColor = Color(0xff059669);
     final Color white;
 

@@ -4,6 +4,7 @@ import 'package:chaqchuq/app/pages/home/bloc/home_state.dart';
 import 'package:chaqchuq/app/pages/home/widgets/carousel.dart';
 import 'package:chaqchuq/app/pages/home/widgets/category.dart';
 import 'package:chaqchuq/app/pages/home/widgets/header.dart';
+import 'package:chaqchuq/app/pages/home/widgets/popular.dart';
 import 'package:chaqchuq/app/pages/home/widgets/products.dart';
 import 'package:chaqchuq/app/utils/colors/app_colors.dart';
 import 'package:chaqchuq/app/utils/textstyle/app_textStyle.dart';
@@ -31,12 +32,10 @@ class _HomePageState extends State<HomePage> {
         final customColors = Theme.of(context).extension<CustomColors>()!;
 
         return Scaffold(
+            backgroundColor: Colors.transparent,
             body: BlocBuilder<HomeBloc, HomeState>(
                 builder: (context, state) {
-                    return Container(
-                        child: Container(
-                            color: customColors.backgroundColor,
-                            child: CustomScrollView(
+                    return CustomScrollView(
                                 slivers: [
                                     SliverToBoxAdapter(
                                         child: HeaderWidget(customColors: customColors, searchController: _searchController)
@@ -48,7 +47,16 @@ class _HomePageState extends State<HomePage> {
                                     SliverToBoxAdapter(
                                         child: Padding(
                                             padding: EdgeInsets.all(20.w),
-                                            child: Text("ChaqChuqlar", style: AppTextStyle.customMontserrat(fontSize: 20.sp, fontweight: FontWeight.w700, color: customColors.textColor)),
+                                            child: Text("Ommabop", style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins", fontWeight: FontWeight.w700, color: customColors.textColor)),
+                                        ),
+                                    ),
+                                    SliverToBoxAdapter(
+                                        child: PopularList(customColors: customColors, products: state.productsList)
+                                    ),
+                                    SliverToBoxAdapter(
+                                        child: Padding(
+                                            padding: EdgeInsets.all(20.w),
+                                            child: Text("ChaqChuqlar", style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins", fontWeight: FontWeight.w700, color: customColors.textColor)),
                                         ),
                                     ),
                                     SliverToBoxAdapter(
@@ -57,31 +65,32 @@ class _HomePageState extends State<HomePage> {
                                     SliverToBoxAdapter(
                                         child: Padding(
                                             padding: EdgeInsets.all(20.w),
-                                            child: Text("products".tr(), style: AppTextStyle.customMontserrat(fontSize: 20.sp, fontweight: FontWeight.w700, color: customColors.textColor)),
+                                            child: Text("products".tr(), style: TextStyle(fontSize: 20.sp, fontFamily: "Poppins", fontWeight: FontWeight.w700, color: customColors.textColor)),
                                         ),
                                     ),
                                     SliverPadding(
-                                            padding: EdgeInsets.symmetric(horizontal: 20.w),
-                                            sliver: SliverGrid(
-                                                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                                    crossAxisCount: 2,
-                                                    mainAxisSpacing: 40.w,
-                                                    crossAxisSpacing: 15.w,
-                                                    childAspectRatio: 0.65,
-                                                ),
-                                                delegate: SliverChildBuilderDelegate(
-                                                    childCount: state.productsList.length,
-                                                    (BuildContext context, int index) {
-                                                        return ProductsGridCard(customColors: customColors, product: state.productsList[index]);
-                                                    },
-                                                ),
+                                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                                        sliver: SliverGrid(
+                                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                                crossAxisCount: 2,
+                                                mainAxisSpacing: 40.w,
+                                                crossAxisSpacing: 15.w,
+                                                childAspectRatio: 0.65,
+                                            ),
+                                            delegate: SliverChildBuilderDelegate(
+                                                childCount: state.productsList.length,
+                                                (BuildContext context, int index) {
+                                                    return 
+                                                        ProductsGridCard(customColors: customColors, product: state.productsList[index], key: ValueKey(state.productsList[index].id), isOdd: index % 2 == 1 ? true :false, );
+                                                
+                                                },
                                             ),
                                         ),
+
+                                    ),
                         
                                     SliverPadding(padding: EdgeInsets.only(top:  50.h)),
                                 ],
-                            ),
-                        ),
                     );
                 }
             ),

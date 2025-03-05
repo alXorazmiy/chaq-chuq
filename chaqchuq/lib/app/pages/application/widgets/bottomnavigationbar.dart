@@ -34,23 +34,32 @@ class CustomBottomNavigationBar extends StatelessWidget {
             child: BlocBuilder<ApplicationBloc, ApplicationState>(
                 builder: (context, state) {
                 return BottomNavigationBar(
-                    enableFeedback: false,
+                    // enableFeedback: false,
+                    showSelectedLabels: true,
                     currentIndex: state.index,
                     elevation: 0,
                     type: BottomNavigationBarType.fixed,
                     backgroundColor: customColors.backgroundColor,
-                    showSelectedLabels: false,
-                    showUnselectedLabels: false,
+                    selectedLabelStyle: TextStyle(
+                            fontSize: 12.sp,
+                            color: customColors.danger,
+                            fontFamily: "Poppins"
+                        ),
+                        unselectedLabelStyle: TextStyle(
+                            fontSize: 12.sp,
+                            color: customColors.textColor,
+                            fontFamily: "Poppins" 
+                        ),
                     onTap: (value) {
                         context.read<ApplicationBloc>().add(TriggerApplicationEvent(value));
                     },
                     items: [
                         BottomNavigationBarItem(
-                            label: "Home",
+                            label: "Bosh sahifa",
                             icon: SizedBox(
                                 width: 20.w,
                                 height: 20.h,
-                                child: Image.asset("assets/icons/home.png", color: customColors.textColor),
+                                child: Image.asset("assets/icons/home.png", color: customColors.textColor.withOpacity(0.6)),
                             ),
                             activeIcon: SizedBox(
                                 width: 20.w,
@@ -59,11 +68,11 @@ class CustomBottomNavigationBar extends StatelessWidget {
                             )
                         ),
                         BottomNavigationBarItem(
-                            label: "Search",
+                            label: "Buyurtmalar",
                             icon: SizedBox(
                                 width: 20.w,
                                 height: 20.h,
-                                child: Image.asset("assets/icons/list.png", color: customColors.textColor),
+                                child: Image.asset("assets/icons/list.png", color: customColors.textColor.withOpacity(0.6)),
                             ),
                             activeIcon: SizedBox(
                                 width: 20.w,
@@ -76,7 +85,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                             icon: SizedBox(
                                 width: 20.w,
                                 height: 20.h,
-                                child: Image.asset("assets/icons/shopbag.png", color: customColors.textColor),
+                                child: Image.asset("assets/icons/shopbag.png", color: customColors.textColor.withOpacity(0.6)),
                             ),
                             activeIcon: SizedBox(
                                 width: 20.w,
@@ -89,7 +98,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                             icon: SizedBox(
                                 width: 20.w,
                                 height: 20.h,
-                                child: Image.asset("assets/icons/person.png", color: customColors.textColor),
+                                child: Image.asset("assets/icons/person.png", color: customColors.textColor.withOpacity(0.6)),
                             ),
                             activeIcon: SizedBox(
                                 width: 20.w,

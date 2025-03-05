@@ -30,14 +30,6 @@ class Carousel extends StatelessWidget {
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(20.r),
-                                boxShadow: [
-                                    BoxShadow(
-                                        color: Colors.black.withOpacity(0.2),
-                                        spreadRadius: 2, 
-                                        blurRadius: 5, 
-                                        offset: Offset(0, 2),
-                                    ),
-                                    ],
                             ),
                             child: Image.asset("assets/images/${i}.png",)
                         );
