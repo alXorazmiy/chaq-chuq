@@ -6,6 +6,7 @@
 
 import 'package:chaqchuq/app/bloc/app_bloc.dart';
 import 'package:chaqchuq/app/global/app_global.dart';
+import 'package:chaqchuq/app/pages/address/bloc/address_bloc.dart';
 import 'package:chaqchuq/app/pages/application/application_page.dart';
 import 'package:chaqchuq/app/pages/application/bloc/application_bloc.dart';
 import 'package:chaqchuq/app/pages/bag/bloc/bag_bloc.dart';
@@ -62,6 +63,9 @@ class AppPages {
         blocProviders.add(
             BlocProvider(create: (_)=> OrdersBloc())
         ); 
+        blocProviders.add(
+            BlocProvider(create: (_)=> MyAddressBloc())
+        );
         blocProviders.add(
             BlocProvider(create: (_)=> BagBloc(homeBloc: BlocProvider.of<HomeBloc>(_)))
         ); 

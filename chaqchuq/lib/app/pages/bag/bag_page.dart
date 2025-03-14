@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as flutter;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 import 'package:rive/rive.dart';
 
 class BagPage extends StatefulWidget {
@@ -34,42 +35,53 @@ class _BagPageState extends State<BagPage> {
                 return Scaffold(
                     backgroundColor: Colors.transparent,
                     appBar: AppBar(
-                        backgroundColor: customColors.danger,
+                        backgroundColor: Colors.transparent,
                         surfaceTintColor: customColors.danger,
                         title: Text(
                             "bag".tr(),
                             style: AppTextStyle.customMontserrat(
                                 fontweight: FontWeight.bold,
                                 fontSize: 20.sp,
-                                color: Colors.white
+                                color: customColors.textColor
                             ),
                         ),
                         centerTitle: true,
-                        actions: [
-                            BlocBuilder<BagBloc, BagState>(
-                                builder: (context, state) {
-                                    return Padding(
-                                        padding: EdgeInsets.only(right: 20.w),
-                                        child: IconButton(
-                                            onPressed: () {
-                                                // BlocProvider.of<BagBloc>(context).add(DeleteBag());
-                                            },
-                                            icon: flutter.Image.asset(
-                                                "assets/icons/delete.png",
-                                                width: 20,
-                                                color: customColors.white
-                                            ),
-                                        ),
-                                    );
-                                },
-                            )
-                        ],
+                        // actions: [
+                        //     BlocBuilder<BagBloc, BagState>(
+                        //         builder: (context, state) {
+                        //             return Padding(
+                        //                 padding: EdgeInsets.only(right: 20.w),
+                        //                 child: Container(
+                        //                     decoration: BoxDecoration(
+                        //                         color: Colors.white,
+                        //                         borderRadius: BorderRadius.circular(10.r),
+                        //                          boxShadow: [
+                        //                             BoxShadow(
+                        //                                 color: Color.fromRGBO(0, 0, 0, 0.05),
+                        //                                 spreadRadius: 2,
+                        //                                 blurRadius: 2,
+                        //                                 offset: Offset(0, 1),
+                        //                             ),
+                        //                         ],
+                        //                     ),
+                        //                     child: IconButton(  
+                        //                         onPressed: () {
+                        //                             // BlocProvider.of<BagBloc>(context).add(DeleteBag());
+                        //                         },
+                        //                         icon: flutter.Image.asset("assets/icons/delete.png", width: 20.w, color: customColors.danger,),
+                        //                     ),
+                        //                 ),
+                        //             );
+                        //         },
+                        //     )
+                        // ],
                     ),
                     body: state.bag_product_list.isEmpty
-                        ? SizedBox(
+                        ? Container(
                             width: 1.sw,
-                            height: 400,
-                            child: RiveAnimation.asset("assets/riv/shopping_cart.riv"),
+                            height: 1.sh,
+                            // color: Colors.white,
+                            child: Lottie.asset("assets/lottie/empty.json",),
                         )
                         : CustomScrollView(
                             slivers: [
@@ -98,9 +110,36 @@ class _BagPageState extends State<BagPage> {
                                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                             children: [
                                                 Text(
+                                                    "Umumiy massa:",
+                                                    style: AppTextStyle.customMontserrat(
+                                                        fontSize: 16.sp,
+                                                        fontweight: FontWeight.bold,
+                                                        color: customColors.textColor
+                                                    ),
+                                                ),
+                                                Text(
+                                                    "${state.totalWeight} kg",
+                                                    style: AppTextStyle.customMontserrat(
+                                                        fontSize: 16.sp,
+                                                        fontweight: FontWeight.bold,
+                                                        color: customColors.warning
+                                                    ),
+                                                ),
+                                            ],
+                                        ),
+                                    ),
+                                ),
+                                SliverToBoxAdapter(
+                                    child: Container(
+                                        width: 1.sw,
+                                        padding: EdgeInsets.symmetric(horizontal: 20.w),
+                                        child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                                Text(
                                                     "Umumiy summa:",
                                                     style: AppTextStyle.customMontserrat(
-                                                        fontSize: 20.sp,
+                                                        fontSize: 16.sp,
                                                         fontweight: FontWeight.bold,
                                                         color: customColors.textColor
                                                     ),
@@ -108,7 +147,7 @@ class _BagPageState extends State<BagPage> {
                                                 Text(
                                                     "${NumberFormat('#,###,###').format(state.totalPrice)} UZS",
                                                     style: AppTextStyle.customMontserrat(
-                                                        fontSize: 20.sp,
+                                                        fontSize: 16.sp,
                                                         fontweight: FontWeight.bold,
                                                         color: customColors.warning
                                                     ),

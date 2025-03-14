@@ -23,9 +23,17 @@ dependencies:
   carousel_slider: ^5.0.0
   animated_snack_bar: ^0.4.0
   rive: ^0.13.20
+  lottie: ^3.3.1
   flutter_native_splash: ^2.4.5
   shimmer: ^3.0.0
   loading_animation_widget: ^1.3.0
+  google_maps_flutter: ^2.10.0
+  yandex_mapkit: ^4.1.0
+  permission_handler: ^11.3.1
+  yandex_geocoder: ^2.3.1
+  geolocator: ^13.0.2
+  translator: ^1.0.3+1
+
 
 dev_dependencies:
   flutter_test:
@@ -42,6 +50,8 @@ flutter:
     - assets/images/
     - assets/products/
     - assets/riv/
+    - assets/lottie/
+    - assets/gif/
     - assets/languages/en-US.json
     - assets/languages/uz-UZ.json
     - assets/languages/ru-RU.json

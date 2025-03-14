@@ -2,6 +2,7 @@
 
 
 
+import 'package:chaqchuq/app/pages/address/address_page.dart';
 import 'package:chaqchuq/app/pages/bag/bag_page.dart';
 import 'package:chaqchuq/app/pages/home/home_page.dart';
 import 'package:chaqchuq/app/pages/orders/orders_page.dart';
@@ -40,6 +41,6 @@ Widget loader2() {
                 color: const Color(0xFFEA3799),
                 size: 40,
             ),
-        ),
+        ),  
     );
 }

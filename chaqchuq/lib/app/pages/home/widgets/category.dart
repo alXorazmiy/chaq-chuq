@@ -23,7 +23,7 @@ class CategoryList extends StatelessWidget {
                             return Padding(
                                 padding: EdgeInsets.only(right: 20.w),
                                 child: Container(
-                                    height: 50.h,
+                                    height: 40.h,
                                     padding: EdgeInsets.only(top: 5.w, left: 10.w, right: 10.w, bottom: 5.w),
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(

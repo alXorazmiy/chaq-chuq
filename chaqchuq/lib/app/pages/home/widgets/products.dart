@@ -16,14 +16,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class ProductsGridCard extends StatelessWidget {
     final CustomColors customColors;
     final ProductsModel product;
-    final bool isOdd;
-    const ProductsGridCard({super.key, required this.customColors, required this.product, required this.isOdd,});
+    const ProductsGridCard({super.key, required this.customColors, required this.product});
 
     @override
     Widget build(BuildContext context) {
-        return Transform.translate(
-            offset: Offset(0, isOdd ? -40.h : 0),
-          child: Stack(
+        return  Stack(
               alignment: AlignmentDirectional.topCenter,
               children: [
                   GestureDetector(
@@ -215,7 +212,6 @@ class ProductsGridCard extends StatelessWidget {
                               ),
                   ),
               ],
-          ),
         );
     }
 }

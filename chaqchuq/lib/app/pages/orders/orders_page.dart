@@ -29,14 +29,14 @@ class _OrdersPageState extends State<OrdersPage> {
             return Scaffold(
                 backgroundColor: Colors.transparent,
             appBar: AppBar(
-                backgroundColor: customColors.danger,
-                surfaceTintColor: customColors.danger,
+                backgroundColor: Colors.transparent,
+                surfaceTintColor: Colors.transparent,
                 title: Text(
                 "order".tr(),
                 style: AppTextStyle.customMontserrat(
                     fontweight: FontWeight.bold,
                     fontSize: 20.sp,
-                    color: Colors.white),
+                    color: Colors.black),
                 ),
                 centerTitle: true,
             ),

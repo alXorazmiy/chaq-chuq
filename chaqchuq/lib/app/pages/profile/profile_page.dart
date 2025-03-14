@@ -4,6 +4,7 @@
 import 'package:chaqchuq/app/bloc/app_bloc.dart';
 import 'package:chaqchuq/app/bloc/app_event.dart';
 import 'package:chaqchuq/app/bloc/app_state.dart';
+import 'package:chaqchuq/app/pages/address/address_page.dart';
 import 'package:chaqchuq/app/pages/profile/widgets/language.dart';
 import 'package:chaqchuq/app/pages/profile/widgets/support.dart';
 import 'package:chaqchuq/app/utils/colors/app_colors.dart';
@@ -12,6 +13,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
 
 class ProfilePage extends StatefulWidget {
@@ -67,9 +69,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 Row(
                                                     children: [
                                                         SizedBox(
-                                                            width: 18.w,
-                                                            height: 18.h,
-                                                            child: Image.asset("assets/icons/person.png", color: customColors.textColor,),
+                                                            width: 24.w,
+                                                            height: 24.h,
+                                                            child: Lottie.asset("assets/lottie/person.json"),
                                                         ), 
                                                         SizedBox(width: 15.w),
                                                         Text("information".tr(), style:TextStyle(fontFamily: "Poppins", fontSize: 18.sp, fontWeight: FontWeight.w500)),
@@ -85,6 +87,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                     ),
                                 ),
                                 GestureDetector(
+                                    onTap: (){
+                                        Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => AddressPage()));
+                                    },
                                     child: Container(
                                         margin: EdgeInsets.only(top: 30.h),
                                         child: Row(
@@ -93,9 +98,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 Row(
                                                     children: [
                                                         SizedBox(
-                                                            width: 18.w,
-                                                            height: 18.h,
-                                                            child: Image.asset("assets/icons/location.png", color: customColors.textColor),
+                                                            width: 30.w,
+                                                            height: 30.h,
+                                                            child: Lottie.asset("assets/lottie/location.json"),
                                                         ), 
                                                         SizedBox(width: 15.w),
                                                         Text("address".tr(), style:TextStyle(fontFamily: "Poppins", fontSize: 18.sp, fontWeight: FontWeight.w500)),

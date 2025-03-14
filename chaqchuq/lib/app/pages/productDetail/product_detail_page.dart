@@ -8,6 +8,7 @@ import 'package:chaqchuq/app/pages/productDetail/bloc/product_detail_bloc.dart';
 import 'package:chaqchuq/app/pages/productDetail/bloc/product_detail_event.dart';
 import 'package:chaqchuq/app/pages/productDetail/bloc/product_detail_state.dart';
 import 'package:chaqchuq/app/pages/productDetail/widget/choose_amount.dart';
+import 'package:chaqchuq/app/pages/productDetail/widget/description.dart';
 import 'package:chaqchuq/app/pages/productDetail/widget/product_detail_card.dart';
 import 'package:chaqchuq/app/utils/colors/app_colors.dart';
 import 'package:chaqchuq/app/utils/textstyle/app_textStyle.dart';
@@ -54,6 +55,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                           ),
                                       ),
                                     ),
+                                    
                                     Container(
                                         width: 130.w,
                                         margin: EdgeInsets.only(right:  20.w),
@@ -103,13 +105,36 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         ),
                         Container(
                             margin: EdgeInsets.fromLTRB(20.w, 10.h, 20.w, 0),
+                                        child: Row(
+                                            children: [
+                                                SizedBox(
+                                                    height: 20.h,
+                                                    width: 20.w,
+                                                    child: Image.asset("assets/icons/fire.png"),
+                                                ),
+                                                Text("233 Colories")
+                                            ],
+                                        ),
+                                    ),
+                        Container(
+                            margin: EdgeInsets.fromLTRB(20.w, 10.h, 20.w, 0),
                             alignment: Alignment.centerLeft,
                             // color: Colors.black,
-                            child: Text(
-                            "description",
-                            style: AppTextStyle.customMontserrat(
-                                fontSize: 18.sp, fontweight: FontWeight.w400),
-                            ),
+                            child: Column(
+                                children: [
+                                     buildIngredientItem("Protein", "18 g / 100 g"),
+            buildIngredientItem("Yog‘lar", "44-46 g / 100 g"),
+            buildIngredientItem("Uglevodlar", "30 g / 100 g"),
+            buildIngredientItem("Vitamin E", "Immunitetni mustahkamlaydi"),
+            buildIngredientItem("Magniy", "Asab tizimi uchun muhim"),
+
+            // buildBenefitItem(Icons.favorite, "Yurak sog‘lig‘ini qo‘llab-quvvatlaydi"),
+            // buildBenefitItem(Icons.shield, "Immunitetni mustahkamlaydi"),
+            // buildBenefitItem(Icons.directions_run, "Energiya beradi"),
+            // buildBenefitItem(Icons.spa, "Teri va sochlar uchun foydali"),
+            // buildBenefitItem(Icons.bloodtype, "Qon bosimini barqarorlashtiradi"),
+                                ],
+                            )
                         ),
                         
                         ],

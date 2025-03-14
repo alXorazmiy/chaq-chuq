@@ -29,7 +29,7 @@ class PopularList extends StatelessWidget {
                             return Padding(
                                 padding: EdgeInsets.only(right: 20.w),
                                 child: Container(
-                                    height: 150.h,
+                                    height: 120.h,
                                     width: 0.8.sw,
                                     padding: EdgeInsets.only(top: 5.w, left: 10.w, right: 10.w, bottom: 5.w),
                                     alignment: Alignment.center,
@@ -47,6 +47,7 @@ class PopularList extends StatelessWidget {
                                                 children: [
                                                     Text(products.name.toString(), style: TextStyle(fontFamily: "Poppins", fontWeight: FontWeight.bold, fontSize: 20.sp)),
                                                     Row(
+                                                        crossAxisAlignment: CrossAxisAlignment.end,
                                                         children: [
                                                             SizedBox(
                                                                 width: 20.w,

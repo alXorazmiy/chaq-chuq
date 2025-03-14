@@ -40,6 +40,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     elevation: 0,
                     type: BottomNavigationBarType.fixed,
                     backgroundColor: customColors.backgroundColor,
+                    selectedItemColor: customColors.danger, // Tanlangan label rangi
+                    unselectedItemColor: customColors.textColor.withOpacity(0.6),
                     selectedLabelStyle: TextStyle(
                             fontSize: 12.sp,
                             color: customColors.danger,

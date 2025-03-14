@@ -29,7 +29,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
     void initState() {
         super.initState();
         Future.delayed(
-            Duration(seconds: 7), 
+            Duration(seconds: 1), 
             (){ 
                 setState(() {
                     isloader = true;
@@ -48,7 +48,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                     children: [
                         Positioned.fill(
                             child: Image.asset(
-                                "assets/images/background.jpeg",
+                                "assets/images/background2.jpeg",
                                 fit: BoxFit.cover,
                             ),
                         ),

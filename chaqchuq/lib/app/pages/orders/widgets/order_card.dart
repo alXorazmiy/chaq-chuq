@@ -7,7 +7,10 @@ import 'package:chaqchuq/app/utils/colors/app_colors.dart';
 import 'package:chaqchuq/app/utils/textstyle/app_textStyle.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as flutter;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
+import 'package:rive/rive.dart';
 
 class OrderCard extends StatelessWidget {
 
@@ -25,21 +28,13 @@ class OrderCard extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.r),
                 color: customColors.white,
-                boxShadow: [
-                    BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.1),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
-                    ),
-                ],
             ),
-            child: Column(
+            child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                    Row(
+                    Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                             Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,68 +43,6 @@ class OrderCard extends StatelessWidget {
                                     Text(order.date.toString(), style: TextStyle(color: Colors.grey),)
                                 ],
                             ),
-                            order.status == "new" 
-                                ?   Row(
-                                        children: [
-                                            SizedBox(
-                                                width: 18.w,
-                                                height: 18.h,
-                                                child: Image.asset("assets/icons/clock.png", color: customColors.primary,),
-                                            ),
-                                            Text("Yangi", style: TextStyle(fontFamily: "Poppins", color: customColors.primary))
-                                        ],
-                                    ) 
-                                :   order.status == "wait" 
-                                        ?   Row(
-                                                children: [
-                                                    SizedBox(
-                                                        width: 18.w,
-                                                        height: 18.h,
-                                                        child: Image.asset("assets/icons/wait.png", color: customColors.warning,),
-                                                    ),
-                                                    Text("Jarayonda", style: TextStyle(fontFamily: "Poppins", color: customColors.warning))
-                                                ],
-                                            ) 
-                                        :   order.status == "cancel" 
-                                            ?   Row(
-                                                    children: [
-                                                        SizedBox(
-                                                            width: 18.w,
-                                                            height: 18.h,
-                                                            child: Image.asset("assets/icons/cancel.png", color: customColors.textColor,),
-                                                        ),
-                                                        Text("Bekor qilingan", style: TextStyle(fontFamily: "Poppins", color: customColors.textColor))
-                                                    ],
-                                                ) 
-                                            :   order.status == "ready" 
-                                                ?   Row(
-                                                        children: [
-                                                            SizedBox(
-                                                                width: 18.w,
-                                                                height: 18.h,
-                                                                child: Image.asset("assets/icons/truck.png", color: customColors.success,),
-                                                            ),
-                                                            Text("Yo'lda", style: TextStyle(fontFamily: "Poppins", color: customColors.success))
-                                                        ],
-                                                    ) 
-                                                :   order.status == "finish" 
-                                                    ?   Row(
-                                                            children: [
-                                                                SizedBox(
-                                                                    width: 18.w,
-                                                                    height: 18.h,
-                                                                    child: Image.asset("assets/icons/hands.png", color: customColors.danger,),
-                                                                ),
-                                                                Text("Yetkazib berilgan", style: TextStyle(fontFamily: "Poppins", color: customColors.danger))
-                                                            ],
-                                                        ) 
-                                                    : SizedBox()
-                        ],
-                    ),
-                    Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
                             Row(
                                 children: [
                                     SizedBox(
@@ -128,7 +61,7 @@ class OrderCard extends StatelessWidget {
                                                                 color: Color(0xfff7f7f7),
                                                                 shape: BoxShape.circle,
                                                             ),
-                                                            child: Image.asset(
+                                                            child: flutter.Image.asset(
                                                                     order.images[index],
                                                         
                                                             ),
@@ -140,6 +73,67 @@ class OrderCard extends StatelessWidget {
                                     )
                                 ],
                             ),
+                            
+                        ],
+                    ),
+                    Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                            order.status == "wait" 
+                                ?   Stack(
+                                        alignment: AlignmentDirectional.topCenter,
+                                        children: [
+                                            Container(
+                                                width: 70.w,
+                                                height: 70.h,
+                                                margin: EdgeInsets.only(top: 15.h),
+                                                child: Lottie.asset("assets/lottie/sandclockblue.json"),
+                                            ),
+                                            Text("Jarayonda", style: TextStyle(fontFamily: "Poppins", color: customColors.primary))
+                                       
+                                        ],
+                                    ) 
+                                :   order.status == "cancel" 
+                                    ?   Stack(
+                                            alignment: AlignmentDirectional.topCenter,
+                                            children: [
+                                                SizedBox(
+                                                    width: 90.w,
+                                                    height: 90.h,
+                                                    child: Lottie.asset("assets/lottie/cancel.json"),
+                                                ),
+                                                Text("Bekor qilingan", style: TextStyle(fontFamily: "Poppins", color: customColors.textColor)),
+                                            ],
+                                        ) 
+                                    :   order.status == "ready" 
+                                        ?   Stack(
+                                                alignment: AlignmentDirectional.topCenter,
+                                                children: [
+                                                    Container(
+                                                        width: 90.w,
+                                                        height: 90.h,
+                                                        // color: Colors.teal,
+                                                        child: Lottie.asset("assets/lottie/delivery.json")
+                                                        // child: RiveAnimation.asset("assets/riv/truck.riv", animations: ['idle', 'curves']),
+                                                    ),
+                                                    Text("Yo'lda", style: TextStyle(fontFamily: "Poppins", color: customColors.success)),
+                                                ],
+                                            ) 
+                                        :   order.status == "finish" 
+                                            ?   Stack(
+                                                    alignment: AlignmentDirectional.topCenter,
+                                                    children: [
+                                                        SizedBox(
+                                                            width: 80.w,
+                                                            height: 80.h,
+                                                            child: Lottie.asset("assets/lottie/deliveryfinish.json"),
+                                                        ),
+                                                        Text("Yetkazib berilgan", style: TextStyle(fontFamily: "Poppins", color: customColors.danger)),
+                                                    ],
+                                                ) 
+                                            : SizedBox(),
+                            
                             Text(
                                 "${NumberFormat('#,###,###').format(300000)} UZS",
                                 style: AppTextStyle.customMontserrat(

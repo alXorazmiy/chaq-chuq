@@ -41,9 +41,9 @@ class _HomePageState extends State<HomePage> {
                                         child: HeaderWidget(customColors: customColors, searchController: _searchController)
                                     ),
                                     SliverPadding(padding: EdgeInsets.only(top:  20.h)),
-                                    SliverToBoxAdapter(
-                                        child: Carousel(customColors: customColors)
-                                    ),
+                                    // SliverToBoxAdapter(
+                                    //     child: Carousel(customColors: customColors)
+                                    // ),
                                     SliverToBoxAdapter(
                                         child: Padding(
                                             padding: EdgeInsets.all(20.w),
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
                                                 childCount: state.productsList.length,
                                                 (BuildContext context, int index) {
                                                     return 
-                                                        ProductsGridCard(customColors: customColors, product: state.productsList[index], key: ValueKey(state.productsList[index].id), isOdd: index % 2 == 1 ? true :false, );
+                                                        ProductsGridCard(customColors: customColors, product: state.productsList[index], key: ValueKey(state.productsList[index].id) );
                                                 
                                                 },
                                             ),

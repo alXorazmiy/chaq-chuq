@@ -26,14 +26,14 @@ class BagProductCard extends StatelessWidget {
             decoration: BoxDecoration(
                 color: customColors.white,
                 borderRadius: BorderRadius.circular(20.r),
-                boxShadow: [
-                    BoxShadow(
-                        color: Color.fromRGBO(0, 0, 0, 0.1),
-                        spreadRadius: 2,
-                        blurRadius: 5,
-                        offset: Offset(0, 2),
-                    ),
-                ],
+                // boxShadow: [
+                //     BoxShadow(
+                //         color: Color.fromRGBO(0, 0, 0, 0.1),
+                //         spreadRadius: 2,
+                //         blurRadius: 5,
+                //         offset: Offset(0, 2),
+                //     ),
+                // ],
             ),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
